@@ -1,0 +1,30 @@
+### %x is job-name
+### %j is job-id
+cluster:
+  mkdir -p slurm/rule_logs/{rule} &&
+  sbatch
+    --mail-user=<YOUR-EMAIL>
+    --job-name={rule}-{wildcards}
+    --cpus-per-task={threads}
+    --time={resources.time}
+    --mem={resources.mem}
+    --partition={resources.partition}
+    --qos={resources.qos}
+    --output=slurm/rule_logs/{rule}/%j-%x.out
+    --error=slurm/rule_logs/{rule}/%j-%x.err
+default-resources:
+  - mem=5000
+  - partition=<YOUR-PARTITION>
+  - qos=<YOUR-QOS>
+  - time="0-12:00:00"
+jobs: 150
+keep-going: True
+latency-wait: 60
+local-cores: 6
+max-jobs-per-second: 10
+max-status-checks-per-second: 1
+printshellcmds: True
+rerun-incomplete: True
+restart-times: 3
+scheduler: greedy
+use-conda: True
