@@ -1,0 +1,9 @@
+name: variant_filtering
+channels:
+ - conda-forge
+ - bioconda
+ - defaults
+dependencies:
+ - freebayes = 1.3.6
+ - gatk4 = 4.4.0.0 
+ - vcflib = 1.0.0

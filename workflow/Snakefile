@@ -1,0 +1,17 @@
+configfile: "config/config.yaml"
+
+include: "rules/qc.smk"
+include: "rules/genome.smk"
+include: "rules/mapping.smk"
+include: "rules/bam_cleanup.smk"
+include: "rules/variant_calling.smk"
+include: "rules/variant_filtering.smk"
+include: "rules/create_new_genome.smk"
+
+rule all:
+	input:
+		"results/qc/multiqc.html",
+		"results/qc/trimmed/multiqc.html"
+		expand("results/qc/qualimap/{sample}", sample=config["samples"]),
+		"results/arctic_daphnia_pulicaria.fasta",
+		"results/arctic_daphnia_pulicaria.fasta.fai"

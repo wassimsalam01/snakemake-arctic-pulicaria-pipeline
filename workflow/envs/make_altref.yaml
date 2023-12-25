@@ -1,0 +1,8 @@
+name: make_altref
+channels:
+ - conda-forge
+ - bioconda
+ - defaults
+dependencies:
+ - bcftools = 1.18
+ - vcflib = 1.0.0

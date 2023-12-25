@@ -1,0 +1,9 @@
+name: variant_calling
+channels:
+ - conda-forge
+ - bioconda
+ - defaults
+dependencies:
+ - freebayes = 1.3.6
+ - bcftools = 1.18
+ - vcflib = 1.0.0

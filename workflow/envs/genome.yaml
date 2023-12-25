@@ -1,0 +1,8 @@
+name: ref
+channels:
+ - conda-forge
+ - bioconda
+ - defaults
+dependencies:
+ - curl = 8.4.0
+ - unzip = 6.0
